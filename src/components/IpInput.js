@@ -73,10 +73,10 @@ class IpInput extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container fluid style={{width: '500px'}}>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <InputGroup>
+            <InputGroup size="lg">
               <FormControl
                 type="text"
                 value={this.state.value}
