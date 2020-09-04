@@ -20,13 +20,18 @@ const Banner = (props) => {
             <h1>IP Address Tracker</h1>
           </div>
           <div style={Styles.ipInput}>
-            <IpInput setLocation={setLocation}/>
-            {console.log(`${location.lat},${location.lng}`)}
+            <IpInput setLocation={setLocation} />
           </div>
         </Container>
       </div>
       <div>
-        <Map coordinates={location == "" ? "Space+Needle,Seattle+WA" : `${location.lat}, ${location.lng}`} />
+        <Map
+          coordinates={
+            location === ""
+              ? "Space+Needle,Seattle+WA"
+              : `${location.lat}, ${location.lng}`
+          }
+        />
       </div>
     </div>
   );
