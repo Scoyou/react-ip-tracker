@@ -1,24 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, Container } from "react-bootstrap";
 
 import background from "../images/pattern-bg.png";
 import useWindowDimensions from "./useWindowDimensions";
 import Styles from "../styles/Styles";
 import IpInput from "./IpInput";
+import Map from "./Map";
 
 const Banner = (props) => {
+  const [location, setLocation] = useState("");
   const { width } = useWindowDimensions();
 
   return (
-    <Container fluid style={Styles.bannerContainer}>
-      <Image src={background} width={width} />
-      <div style={Styles.bannerText}>
-        <h1>IP Address Tracker</h1>
+    <div>
+      <div>
+        <Image src={background} width={width} />
+        <Container fluid style={Styles.bannerContainer}>
+          <div style={Styles.bannerText}>
+            <h1>IP Address Tracker</h1>
+          </div>
+          <div style={Styles.ipInput}>
+            <IpInput setLocation={setLocation}/>
+            {console.log(`${location.lat},${location.lng}`)}
+          </div>
+        </Container>
       </div>
-      <div style={Styles.ipInput}>
-        <IpInput />
+      <div>
+        <Map coordinates={location == "" ? "Space+Needle,Seattle+WA" : `${location.lat}, ${location.lng}`} />
       </div>
-    </Container>
+    </div>
   );
 };
 

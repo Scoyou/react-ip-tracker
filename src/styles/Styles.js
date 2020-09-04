@@ -2,7 +2,7 @@ const styles = {
     bannerContainer: {
         justifyContent: 'center',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     bannerText: {
         position: "absolute",

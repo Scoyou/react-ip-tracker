@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-import Button from 'react-bootstrap/Button'
 
 import AddressInfo from "./AddressInfo";
+
 
 class IpInput extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
     this.state = { 
         value: "",
         addrInfo: "" 
@@ -22,22 +23,28 @@ class IpInput extends Component {
   }
 
   handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
     event.preventDefault();
   }
 
-  getAddrInfo = address => {
+  getAddrInfo = (address) => {
     axios.get(
       `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_IPIFY_KEY}&ipAddress=${address}`
     ).then(res => {
-        this.setState({addrInfo: res.data})
+        const location = res.data.location
+        this.setState({addrInfo: res.data});
+        this.setLocation(location);
     }).catch(err => {
         console.log(err)
     })
   };
 
+  setLocation = (location) => {
+    this.props.setLocation(location)
+  }
+
   render() {
     return (
+    <div>
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -52,6 +59,7 @@ class IpInput extends Component {
           <AddressInfo ipAddr={this.state.addrInfo.ip} location={this.state.addrInfo.location} isp={this.state.addrInfo.isp} />
         </form>
       </div>
+    </div>
     );
   }
 }

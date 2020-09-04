@@ -1,17 +1,17 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container'
+import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
 
-import Banner from './components/Banner';
-import Map from './components/Map';
+import Banner from "./components/Banner";
 
+class App extends Component {
 
-function App() {
-  return (
-    <Container fluid>
-      <Banner />
-      <Map coordinates={"Space+Needle,Seattle+WA"} />
-    </Container>
-  );
+  render() {
+    return (
+      <Container fluid>
+        <Banner />
+      </Container>
+    );
+  }
 }
 
 export default App;

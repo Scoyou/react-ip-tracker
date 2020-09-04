@@ -1,30 +1,31 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container';
 
 const AddressInfo = (props) => {
   return (
-    <div>
+    <Container fluid="md">
       <Row>
-        <Col>
-          IP Address
-          {props.ipAddr}
+        <Col sm={12} lg={3}>
+        <h3>IP Address</h3>
+          <p>{props.ipAddr}</p>
         </Col>
-        <Col>
-          Location
-          {props.location && props.location.city}
-          {props.location && props.location.region}
+        <Col sm={12} lg={3}>
+          <h3>Location</h3>
+          <p>{props.location && props.location.city}</p>
+          <p>{props.location && props.location.region}</p>
         </Col>
-        <Col>
-          Timezone
-          {props.location && props.location.timezone}
+        <Col sm={12} lg={3}>
+          <h3>Timezone</h3>
+          <p>{props.location && props.location.timezone}</p>
         </Col>
-        <Col>
-          ISP
-          {props.isp}
+        <Col sm={12} lg={3}>
+        <h3>ISP</h3>
+          <p>{props.isp}</p>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 };
 
