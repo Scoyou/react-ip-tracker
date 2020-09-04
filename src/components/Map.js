@@ -6,7 +6,6 @@ const Map = (props) => {
   const { width } = useWindowDimensions();
   return (
     <div>
-      {console.log(process.env.REACT_APP_GOOGLE_API_KEY)}
       <iframe
         title="GoogleMap"
         width={width}

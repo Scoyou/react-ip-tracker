@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container'
 
 import Banner from './components/Banner';
 import Map from './components/Map';
@@ -6,10 +7,10 @@ import Map from './components/Map';
 
 function App() {
   return (
-    <div className="App">
+    <Container fluid>
       <Banner />
       <Map coordinates={"Space+Needle,Seattle+WA"} />
-    </div>
+    </Container>
   );
 }
 
